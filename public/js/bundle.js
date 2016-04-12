@@ -26960,6 +26960,8 @@
 		var action = arguments[1];
 
 		switch (action.type) {
+			case constants.ActionTypes.selectFullImage:
+			// - update selectedImage
 			case constants.ActionTypes.imageRequestBegin:
 			// - update selectedImage (to null?)
 			// - update reactJS.isFetching
@@ -26968,8 +26970,6 @@
 			case constants.ActionTypes.imageRequestError:
 			// - update reactJS.isFetching
 			// - update reactJS.errorData
-			case constants.ActionTypes.selectFullImage:
-			// - update selectedImage
 			default:
 				return state;
 		}
@@ -26988,17 +26988,14 @@
 
 	"use strict";
 
-	var _exports$ActionTypes;
-
-	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-	exports.ActionTypes = (_exports$ActionTypes = {
-		updateSearchTerm: "",
-		updateSortBy: "",
-		imageRequestBegin: "",
-		imageRequestSuccess: "",
-		imageRequestError: ""
-	}, _defineProperty(_exports$ActionTypes, "imageRequestBegin", ""), _defineProperty(_exports$ActionTypes, "imageRequestSuccess", ""), _defineProperty(_exports$ActionTypes, "imageRequestError", ""), _defineProperty(_exports$ActionTypes, "selectFullImage", ""), _exports$ActionTypes);
+	exports.ActionTypes = {
+		updateSearchTerm: "UPDATE_SEARCHTERM",
+		updateSortBy: "UPDATE_SORTBY",
+		imageRequestBegin: "IMAGE_REQUEST_BEGIN",
+		imageRequestSuccess: "IMAGE_REQUEST_SUCCESS",
+		imageRequestError: "IMAGE_REQUEST_ERROR",
+		selectFullImage: "SELECT_FULL_IMAGE"
+	};
 
 /***/ }
 /******/ ]);

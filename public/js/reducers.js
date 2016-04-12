@@ -24,6 +24,8 @@ function imgThumbCollection(state = {}, action) {
 
 function imgFullDisplay(state = {}, action) {
 	switch(action.type) {
+		case constants.ActionTypes.selectFullImage:
+			// - update selectedImage
 		case constants.ActionTypes.imageRequestBegin:
 			// - update selectedImage (to null?)
 			// - update reactJS.isFetching
@@ -32,8 +34,6 @@ function imgFullDisplay(state = {}, action) {
 		case constants.ActionTypes.imageRequestError:
 			// - update reactJS.isFetching
 			// - update reactJS.errorData
-		case constants.ActionTypes.selectFullImage:
-			// - update selectedImage
 		default:
 			return state;
 	}
