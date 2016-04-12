@@ -4,7 +4,12 @@ const SearchHistory = ({ searchHistory, onUpdateSearchTerm }) => (
 	<ul>
 		{
 			searchHistory.map(historyItem => 
-				<li key={historyItem}>{historyItem}</li>
+				<a key={historyItem} href="#"onClick={ (e) => {
+					e.preventDefault();
+					onUpdateSearchTerm(historyItem);
+				}}>
+					<li>{historyItem}</li>
+				</a>
 			)
 		}
 	</ul>
