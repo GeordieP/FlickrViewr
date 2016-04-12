@@ -26934,7 +26934,7 @@
 	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
 	function imgThumbCollection() {
-		var state = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+		var state = arguments.length <= 0 || arguments[0] === undefined ? constants.DefaultImgThumbCollectionState : arguments[0];
 		var action = arguments[1];
 
 		switch (action.type) {
@@ -26969,7 +26969,7 @@
 	}
 
 	function imgFullDisplay() {
-		var state = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+		var state = arguments.length <= 0 || arguments[0] === undefined ? constants.DefaultImgFullDisplayState : arguments[0];
 		var action = arguments[1];
 
 		switch (action.type) {
@@ -27015,10 +27015,34 @@
 	exports.ActionTypes = {
 		updateSearchTerm: "UPDATE_SEARCHTERM",
 		updateSortBy: "UPDATE_SORTBY",
+		selectFullImage: "SELECT_FULL_IMAGE",
 		imageRequestBegin: "IMAGE_REQUEST_BEGIN",
 		imageRequestSuccess: "IMAGE_REQUEST_SUCCESS",
-		imageRequestError: "IMAGE_REQUEST_ERROR",
-		selectFullImage: "SELECT_FULL_IMAGE"
+		imageRequestError: "IMAGE_REQUEST_ERROR"
+	};
+
+	exports.SortByMethods = {
+		'dateAsc': 'dateAsc',
+		'dateDec': 'dateDec'
+	};
+
+	exports.DefaultImgThumbCollectionState = {
+		searchTerm: 'no search term',
+		searchHistory: [],
+		sortBy: 'dateDec',
+		images: [],
+		reactJS: {
+			isFetching: false,
+			errorData: ''
+		}
+	};
+
+	exports.DefaultImgFullDisplayState = {
+		selectedImage: 'no selected img',
+		reactJS: {
+			isFetching: false,
+			errorData: ''
+		}
 	};
 
 /***/ }
