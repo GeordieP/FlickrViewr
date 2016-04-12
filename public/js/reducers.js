@@ -6,7 +6,11 @@ function imgThumbCollection(state = constants.DefaultImgThumbCollectionState, ac
 		case constants.ActionTypes.updateSearchTerm:
 			return Object.assign({}, state, {
 				searchTerm: action.searchTerm,
-				searchHistory: [...state.searchHistory, action.searchTerm]
+				searchHistory: [...state.searchHistory, {
+						searchTerm: action.searchTerm,
+						searchID: action.searchID
+					}
+				]
 			});
 		case constants.ActionTypes.updateSortBy:
 			return Object.assign({}, state, {
