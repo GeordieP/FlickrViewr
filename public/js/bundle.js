@@ -60,9 +60,19 @@
 
 	var _AppMain2 = _interopRequireDefault(_AppMain);
 
+	var _reducers = __webpack_require__(253);
+
+	var _reducers2 = _interopRequireDefault(_reducers);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	(0, _reactDom.render)(_react2.default.createElement(_AppMain2.default, null), document.getElementById('root'));
+	var store = (0, _redux.createStore)(_reducers2.default);
+
+	(0, _reactDom.render)(_react2.default.createElement(
+		_reactRedux.Provider,
+		{ store: store },
+		_react2.default.createElement(_AppMain2.default, null)
+	), document.getElementById('root'));
 
 /***/ },
 /* 1 */
@@ -26902,6 +26912,93 @@
 			);
 		}
 	});
+
+/***/ },
+/* 253 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _constants = __webpack_require__(254);
+
+	var constants = _interopRequireWildcard(_constants);
+
+	var _redux = __webpack_require__(172);
+
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+	function imgThumbCollection() {
+		var state = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+		var action = arguments[1];
+
+		switch (action.type) {
+			case constants.ActionTypes.updateSearchTerm:
+			// - update searchTerm
+			// - push to searchHistory
+			// - update reactJS.isFetching and errorData
+			case constants.ActionTypes.updateSortBy:
+			// - update sortBy
+			// - re-order images array
+			case constants.ActionTypes.imageRequestBegin:
+			// - update reactJS.isFetching
+			case constants.ActionTypes.imageRequestSuccess:
+			// - update images array			
+			case constants.ActionTypes.imageRequestError:
+			// - update reactJS.isFetching
+			// - update reactJS.errorData
+			default:
+				return state;
+		}
+	}
+
+	function imgFullDisplay() {
+		var state = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+		var action = arguments[1];
+
+		switch (action.type) {
+			case constants.ActionTypes.imageRequestBegin:
+			// - update selectedImage (to null?)
+			// - update reactJS.isFetching
+			case constants.ActionTypes.imageRequestSuccess:
+			// - update selectedImage		
+			case constants.ActionTypes.imageRequestError:
+			// - update reactJS.isFetching
+			// - update reactJS.errorData
+			case constants.ActionTypes.selectFullImage:
+			// - update selectedImage
+			default:
+				return state;
+		}
+	}
+
+	var FlickrViewr = (0, _redux.combineReducers)({
+		imgThumbCollection: imgThumbCollection,
+		imgFullDisplay: imgFullDisplay
+	});
+
+	exports.default = FlickrViewr;
+
+/***/ },
+/* 254 */
+/***/ function(module, exports) {
+
+	"use strict";
+
+	var _exports$ActionTypes;
+
+	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+	exports.ActionTypes = (_exports$ActionTypes = {
+		updateSearchTerm: "",
+		updateSortBy: "",
+		imageRequestBegin: "",
+		imageRequestSuccess: "",
+		imageRequestError: ""
+	}, _defineProperty(_exports$ActionTypes, "imageRequestBegin", ""), _defineProperty(_exports$ActionTypes, "imageRequestSuccess", ""), _defineProperty(_exports$ActionTypes, "imageRequestError", ""), _defineProperty(_exports$ActionTypes, "selectFullImage", ""), _exports$ActionTypes);
 
 /***/ }
 /******/ ]);
