@@ -6,7 +6,8 @@ export function updateSearchTerm(dispatch, searchTerm) {
 
 	return {
 		type: constants.ActionTypes.updateSearchTerm,
-		searchTerm: searchTerm
+		searchTerm: searchTerm,
+		searchID: Date.now()				// use date.now as unique ID. Not very robust, but it works for this simple app
 	}
 }
 
