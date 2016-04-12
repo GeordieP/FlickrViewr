@@ -1,7 +1,7 @@
 import * as constants from './constants';
 import { combineReducers } from 'redux';
 
-function imgThumbCollection(state = {}, action) {
+function imgThumbCollection(state = constants.DefaultImgThumbCollectionState, action) {
 	switch(action.type) {
 		case constants.ActionTypes.updateSearchTerm:
 			return Object.assign({}, state, {
@@ -33,7 +33,7 @@ function imgThumbCollection(state = {}, action) {
 	}
 }
 
-function imgFullDisplay(state = {}, action) {
+function imgFullDisplay(state = constants.DefaultImgFullDisplayState, action) {
 	switch(action.type) {
 		case constants.ActionTypes.selectFullImage:
 			return Object.assign({}, state, {
