@@ -1,0 +1,13 @@
+#root {
+	background: #ccc;
+	height: 400px;
+	width: 400px;
+}
+
+aside {
+	float: left;
+}
+
+main {
+	float: right;
+}
