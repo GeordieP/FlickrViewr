@@ -21597,11 +21597,6 @@
 			return _react2.default.createElement(
 				'aside',
 				null,
-				_react2.default.createElement(
-					'p',
-					null,
-					'Sidebar'
-				),
 				_react2.default.createElement(_SearchBox2.default, null),
 				_react2.default.createElement(_SearchHistory2.default, null)
 			);
@@ -21612,7 +21607,7 @@
 /* 191 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
 		value: true
@@ -21625,12 +21620,17 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	exports.default = _react2.default.createClass({
-		displayName: 'SearchBox',
+		displayName: "SearchBox",
 		render: function render() {
 			return _react2.default.createElement(
-				'p',
+				"div",
 				null,
-				'SearchBox'
+				_react2.default.createElement("input", { type: "text" }),
+				_react2.default.createElement(
+					"button",
+					null,
+					"Search"
+				)
 			);
 		}
 	});
