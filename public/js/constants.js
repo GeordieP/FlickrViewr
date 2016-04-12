@@ -14,7 +14,7 @@ exports.SortByMethods = {
 
 exports.DefaultImgThumbCollectionState = {
 	searchTerm: 'no search term',
-	searchHistory: [],
+	searchHistory: ['no search history'],
 	sortBy: 'dateDec',
 	images: [],
 	reactJS: {

@@ -2,7 +2,7 @@ import * as constants from './constants';
 
 export function updateSearchTerm(dispatch, searchTerm) {
 
-	dispatch(imageRequestBegin(dispatch, /* get image list from api */ ));
+	//dispatch(imageRequestBegin(dispatch, /* get image list from api */ ));
 
 	return {
 		type: constants.ActionTypes.updateSearchTerm,
@@ -19,7 +19,7 @@ export function updateSortBy(sortBy) {
 
 export function selectFullImage(imageID) {
 
-	dispatch(imageRequestBegin(dispatch, /* get full image from api if necessary */ ));
+	//dispatch(imageRequestBegin(dispatch, /* get full image from api if necessary */ ));
 
 	return {
 		type: constants.ActionTypes.selectFullImage,
