@@ -6,7 +6,6 @@ export default React.createClass({
 	render() {
 		return (
 			<aside>
-				<p>Sidebar</p>
 				<SearchBox />
 				<SearchHistory />
 			</aside>
