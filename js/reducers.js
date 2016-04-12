@@ -4,19 +4,30 @@ import { combineReducers } from 'redux';
 function imgThumbCollection(state = {}, action) {
 	switch(action.type) {
 		case constants.ActionTypes.updateSearchTerm:
-			// - update searchTerm
-			// - push to searchHistory
-			// - update reactJS.isFetching and errorData
+			return Object.assign({}, state, {
+				searchTerm: action.searchTerm,
+				searchHistory: [...state.searchHistory, action.searchTerm]
+			});
 		case constants.ActionTypes.updateSortBy:
-			// - update sortBy
-			// - re-order images array
+			return Object.assign({}, state, {
+				sortBy: state.sortBy
+			});
 		case constants.ActionTypes.imageRequestBegin:
-			// - update reactJS.isFetching
-		case constants.ActionTypes.imageRequestSuccess:
-			// - update images array			
 		case constants.ActionTypes.imageRequestError:
-			// - update reactJS.isFetching
-			// - update reactJS.errorData
+			return Object.assign({}, state, {
+				reactJS: {
+					isFetching: state.isFetching,
+					errorData: state.errorData
+				}
+			});
+		case constants.ActionTypes.imageRequestSuccess:
+			return Object.assign({}, state, {
+				images: action.receivedData,
+				reactJS: {
+					isFetching: state.isFetching,
+					errorData: state.errorData
+				}
+			});
 		default:
 			return state;
 	}
@@ -25,15 +36,26 @@ function imgThumbCollection(state = {}, action) {
 function imgFullDisplay(state = {}, action) {
 	switch(action.type) {
 		case constants.ActionTypes.selectFullImage:
-			// - update selectedImage
+			return Object.assign({}, state, {
+				selectedImage: action.imageID
+			});
 		case constants.ActionTypes.imageRequestBegin:
-			// - update selectedImage (to null?)
-			// - update reactJS.isFetching
-		case constants.ActionTypes.imageRequestSuccess:
-			// - update selectedImage		
 		case constants.ActionTypes.imageRequestError:
-			// - update reactJS.isFetching
-			// - update reactJS.errorData
+			return Object.assign({}, state, {
+				selectedImage: '',
+				reactJS: {
+					isFetching: state.isFetching,
+					errorData: state.errorData
+				}
+			});
+		case constants.ActionTypes.imageRequestSuccess:
+			return Object.assign({}, state, {
+				selectedImage: action.receivedData,
+				reactJS: {
+					isFetching: state.isFetching,
+					errorData: state.errorData
+				}
+			});
 		default:
 			return state;
 	}
