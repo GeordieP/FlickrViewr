@@ -1,8 +1,9 @@
 import * as constants from './constants';
+import { SendGetReq, FlickrPhotoSearchURLBuilder } from './apis'
 
 export function updateSearchTerm(dispatch, searchTerm) {
 
-	//dispatch(imageRequestBegin(dispatch, /* get image list from api */ ));
+	dispatch(imageRequestBegin(dispatch, FlickrPhotoSearchURLBuilder(searchTerm, '1')));
 
 	return {
 		type: constants.ActionTypes.updateSearchTerm,
@@ -29,6 +30,16 @@ export function selectFullImage(imageID) {
 }
 
 export function imageRequestBegin(dispatch, url) {
+
+	SendGetReq(url,
+		(successData) => {
+			dispatch(imageRequestSuccess(successData));
+		},
+		(errorData) => {
+			dispatch(imageRequestError(errorData));
+		}
+	);
+
 	return {
 		type: constants.ActionTypes.imageRequestBegin,
 		isFetching: true,
@@ -36,16 +47,16 @@ export function imageRequestBegin(dispatch, url) {
 	}
 }
 
-export function imageRequestSuccess(dispatch, receivedData) {
+export function imageRequestSuccess(receivedData) {
 	return {
 		type: constants.ActionTypes.imageRequestSuccess,
 		isFetching: false,
 		errorData: '',
-		receivedData: receivedData
+		receivedData: JSON.parse(receivedData)
 	}
 }
 
-export function imageRequestError(dispatch, receivedData) {
+export function imageRequestError(receivedData) {
 	return {
 		type: constants.ActionTypes.imageRequestError,
 		isFetching: false,

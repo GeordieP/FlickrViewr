@@ -26,7 +26,7 @@ function imgThumbCollection(state = constants.DefaultImgThumbCollectionState, ac
 			});
 		case constants.ActionTypes.imageRequestSuccess:
 			return Object.assign({}, state, {
-				images: action.receivedData,
+				images: action.receivedData.photos.photo,
 				reactJS: {
 					isFetching: state.isFetching,
 					errorData: state.errorData

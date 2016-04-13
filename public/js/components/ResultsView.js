@@ -3,9 +3,12 @@ import { Link } from 'react-router'
 
 export default React.createClass({
 	render() {
+		console.log(this.props);
+		if (this.props.images.length < 1) return null;
+
 		return (
 			<div>
-				<Link to="/image/1234">go to /image/1234</Link>
+				<img src={this.props.images[0].url_s} />
 			</div>		
 		)
 	}
