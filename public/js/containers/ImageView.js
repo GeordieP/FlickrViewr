@@ -1,19 +1,27 @@
 import React from 'react';
-// import { Link } from 'react-router'
+import { Link } from 'react-router'
 import { connect } from 'react-redux';
 
 let ImageViewShape = React.createClass({
+	ImgUrlFromID (imageID) {
+		return this.props.images.find( (img) => {
+			return img.id === imageID;
+		}).url_z;
+	},
 	render() {
 		return (
 			<div>
-				<img /> {/* display selected full image */}
+				<Link to="/">Back</Link>
+				<img src={this.ImgUrlFromID(this.props.params.imageID)}/>
 			</div>
 		)
 	}
 })
 
 const mapStateToProps = (state, ownProps) => {
-	return {}
+	return {
+		images: state.imgThumbCollection.images
+	}
 }
 
 let ImageView = connect(mapStateToProps)(ImageViewShape);
