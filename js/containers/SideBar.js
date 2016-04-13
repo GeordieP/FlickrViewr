@@ -5,8 +5,6 @@ import SearchBox from '../components/SearchBox';
 import SearchHistory from '../components/SearchHistory';
 
 let SideBarShape = ({ searchHistory, onUpdateSearchTerm }) => (
-// let SideBarShape = ({ searchHistory, updateSearchTerm }) => {
-
 	<aside>
 		<SearchBox onUpdateSearchTerm={onUpdateSearchTerm} />
 		<SearchHistory searchHistory={searchHistory} onUpdateSearchTerm={onUpdateSearchTerm} />

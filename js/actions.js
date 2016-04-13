@@ -2,7 +2,6 @@ import * as constants from './constants';
 import { SendGetReq, FlickrPhotoSearchURLBuilder } from './apis'
 
 export function updateSearchTerm(dispatch, searchTerm) {
-
 	dispatch(imageRequestBegin(dispatch, FlickrPhotoSearchURLBuilder(searchTerm, '1')));
 
 	return {
@@ -30,7 +29,6 @@ export function selectFullImage(imageID) {
 }
 
 export function imageRequestBegin(dispatch, url) {
-
 	SendGetReq(url,
 		(successData) => {
 			dispatch(imageRequestSuccess(successData));

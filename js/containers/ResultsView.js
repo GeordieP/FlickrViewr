@@ -1,5 +1,5 @@
 import React from 'react';
-// import { Link } from 'react-router'
+import { Link } from 'react-router'
 import { connect } from 'react-redux';
 
 let ResultsViewShape = React.createClass({
@@ -9,7 +9,9 @@ let ResultsViewShape = React.createClass({
 
 		return (
 			<div>
-				<img src={this.props.images[0].url_s} />
+				<Link to={ '/image/' + this.props.images[0].id } >
+					<img src={this.props.images[0].url_s} />
+				</Link>
 			</div>
 		);
 	}

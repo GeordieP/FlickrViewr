@@ -15,7 +15,7 @@ export default React.createClass({
 				<main>
 					<Router history={ hashHistory }>
 						<Route path="/" component={ResultsView} />
-						<Route path="/Results" component={ResultsView} />
+						<Route path="/image/:imageID" component={ImageView} />
 					</Router>
 				</main>
 
