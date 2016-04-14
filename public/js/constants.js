@@ -23,7 +23,18 @@ exports.MaxSearchHistoryLength = 10;
 
 exports.DefaultImgThumbCollectionState = {
 	searchTerm: 'no search term',
-	searchHistory: [],	
+	searchHistory: [
+	{ searchTerm: 'toronto', searchID: 'toronto' },
+	{ searchTerm: 'food', searchID: 'food' },
+	{ searchTerm: 'birds', searchID: 'birds' },
+	{ searchTerm: 'spring', searchID: 'spring' },
+	{ searchTerm: 'festival', searchID: 'festival' },
+	{ searchTerm: 'headphones', searchID: 'headphones' },
+	{ searchTerm: 'speakers', searchID: 'speakers' },
+	{ searchTerm: 'digital dreams', searchID: 'digital dreams' },
+	{ searchTerm: 'veld', searchID: 'veld' },
+	{ searchTerm: 'sunset', searchID: 'sunset' }
+	],	
 	sortBy: 'date-posted-desc',
 	imagePageNumber: 1,
 	images: [],
