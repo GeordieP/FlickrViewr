@@ -12,11 +12,12 @@ export function updateSearchTerm(dispatch, searchTerm) {
 }
 
 export function updateSortBy(dispatch, sortBy) {
-	dispatch(imageRequestBegin(dispatch, FlickrPhotoSearchURLBuilder(void 0, void 0, sortBy)));
+	let newSortBy = constants.SortByMethods[sortBy];
+	dispatch(imageRequestBegin(dispatch, FlickrPhotoSearchURLBuilder(void 0, void 0, newSortBy)));
 
 	return {
 		type: constants.ActionTypes.updateSortBy,
-		sortBy: sortBy,
+		sortBy: newSortBy,
 		imagePageNumber: 1
 	}
 }
