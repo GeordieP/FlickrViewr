@@ -9,9 +9,13 @@ let ResultsViewShape = React.createClass({
 
 		return (
 			<div>
-				<Link to={ '/image/' + this.props.images[0].id } >
-					<img src={this.props.images[0].url_s} />
-				</Link>
+				{
+					this.props.images.map(image =>
+					<Link to={ '/image/' + image.id } >
+						<img src={image.url_s} />
+					</Link>
+					)
+				}
 			</div>
 		);
 	}
