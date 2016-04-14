@@ -4,17 +4,23 @@ import { combineReducers } from 'redux';
 function imgThumbCollection(state = constants.DefaultImgThumbCollectionState, action) {
 	switch(action.type) {
 		case constants.ActionTypes.updateSearchTerm:
+			let newHistory = [{
+					searchTerm: action.searchTerm,
+					searchID: action.searchID
+				},
+				...state.searchHistory
+			];
+
+			if (newHistory.length > constants.MaxSearchHistoryLength) newHistory.pop()
+			
 			return Object.assign({}, state, {
 				searchTerm: action.searchTerm,
-				searchHistory: [...state.searchHistory, {
-						searchTerm: action.searchTerm,
-						searchID: action.searchID
-					}
-				]
+				searchHistory: newHistory
 			});
 		case constants.ActionTypes.updateSortBy:
 			return Object.assign({}, state, {
-				sortBy: action.sortBy
+				sortBy: action.sortBy,
+				imagePageNumber: action.imagePageNumber
 			});
 		case constants.ActionTypes.loadNextPage:
 		case constants.ActionTypes.loadPrevPage:
