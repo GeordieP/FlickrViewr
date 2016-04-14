@@ -21,11 +21,7 @@ exports.SortByMethods = {
 
 exports.DefaultImgThumbCollectionState = {
 	searchTerm: 'no search term',
-	searchHistory: [{
-			searchTerm: 'no search history',
-			searchID: 1460485534831
-		}
-	],
+	searchHistory: [],
 	sortBy: 'date-posted-desc',
 	imagePageNumber: 1,
 	images: [],
