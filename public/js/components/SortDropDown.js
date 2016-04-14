@@ -7,7 +7,6 @@ export default ({ onUpdateSortMethod }) => {
 		<select ref={node => { selectElement = node }} onChange={ () => onUpdateSortMethod(selectElement.value) }>
 			{
 				Object.keys(constants.SortByMethods).map((sortMethod, index, methodsArray) =>
-				// constants.SortByMethods.map(sortMethod =>
 					<option key={sortMethod} value={sortMethod}>{methodsArray[index]}</option>
 				)
 			}
