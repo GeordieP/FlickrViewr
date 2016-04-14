@@ -2,7 +2,7 @@ import * as constants from './constants';
 import { SendGetReq, FlickrPhotoSearchURLBuilder } from './apis'
 
 export function updateSearchTerm(dispatch, searchTerm) {
-	dispatch(imageRequestBegin(dispatch, FlickrPhotoSearchURLBuilder(searchTerm, '1')));
+	dispatch(imageRequestBegin(dispatch, FlickrPhotoSearchURLBuilder(searchTerm)));
 
 	return {
 		type: constants.ActionTypes.updateSearchTerm,
@@ -11,28 +11,26 @@ export function updateSearchTerm(dispatch, searchTerm) {
 	}
 }
 
-export function updateSortBy(sortBy) {
+export function updateSortBy(dispatch, sortBy) {
+	dispatch(imageRequestBegin(dispatch, FlickrPhotoSearchURLBuilder(void 0, void 0, sortBy)));
+
 	return {
 		type: constants.ActionTypes.updateSortBy,
-		sortBy: sortBy
+		sortBy: sortBy,
+		imagePageNumber: 1
 	}
 }
 
 export function selectFullImage(imageID) {
-
-	//dispatch(imageRequestBegin(dispatch, /* get full image from api if necessary */ ));
-
 	return {
 		type: constants.ActionTypes.selectFullImage,
 		imageID: imageID
 	}
 }
 
-export function loadNextPage(dispatch, searchTerm, currentPageNumber) {
-	console.log('next. current page: ' + currentPageNumber);
-
+export function loadNextPage(dispatch, currentPageNumber) {
 	let newPageNumber = ++currentPageNumber;
-	dispatch(imageRequestBegin(dispatch, FlickrPhotoSearchURLBuilder(searchTerm, newPageNumber)));
+	dispatch(imageRequestBegin(dispatch, FlickrPhotoSearchURLBuilder(void 0, newPageNumber)));
 
 	return {
 		type: constants.ActionTypes.loadNextPage,
@@ -40,10 +38,10 @@ export function loadNextPage(dispatch, searchTerm, currentPageNumber) {
 	}
 }
 
-export function loadPrevPage(dispatch, searchTerm, currentPageNumber) {
+export function loadPrevPage(dispatch, currentPageNumber) {
 
 	let newPageNumber = --currentPageNumber;
-	dispatch(imageRequestBegin(dispatch, FlickrPhotoSearchURLBuilder(searchTerm, newPageNumber)));
+	dispatch(imageRequestBegin(dispatch, FlickrPhotoSearchURLBuilder(void 0, newPageNumber)));
 
 	return {
 		type: constants.ActionTypes.loadPrevPage,

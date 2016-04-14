@@ -11,8 +11,8 @@ let ResultsViewShape = React.createClass({
 		return (
 			<div>
 			<p>page number: {this.props.imagePageNumber}</p>
-			<a href="#" onClick={() => this.props.prevPageClick(this.props.searchTerm, this.props.imagePageNumber)}>Previous Page</a>
-			<a href="#" onClick={() => this.props.nextPageClick(this.props.searchTerm, this.props.imagePageNumber)}>Next Page</a>
+			<a href="#" onClick={() => this.props.prevPageClick(this.props.imagePageNumber)}>Previous Page</a>
+			<a href="#" onClick={() => this.props.nextPageClick(this.props.imagePageNumber)}>Next Page</a>
 				{
 					this.props.images.map(image =>
 					<Link key={image.id} to={ '/image/' + image.id } >
@@ -27,7 +27,6 @@ let ResultsViewShape = React.createClass({
 
 const mapStateToProps = (state, ownProps) => {
 	return {
-		searchTerm: state.imgThumbCollection.searchTerm,
 		imagePageNumber: state.imgThumbCollection.imagePageNumber,
 		images: state.imgThumbCollection.images
 	}
@@ -35,11 +34,11 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
 	return {
-		nextPageClick: (searchTerm, currentPageNumber) => {
-			dispatch(loadNextPage(dispatch, searchTerm, currentPageNumber));
+		nextPageClick: (currentPageNumber) => {
+			dispatch(loadNextPage(dispatch, currentPageNumber));
 		},
 		prevPageClick: (searchTerm, currentPageNumber) => {
-			dispatch(loadPrevPage(dispatch, searchTerm, currentPageNumber));
+			dispatch(loadPrevPage(dispatch, currentPageNumber));
 		}
 	}
 }

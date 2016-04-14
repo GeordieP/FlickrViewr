@@ -9,10 +9,15 @@ exports.ActionTypes = {
 	imageRequestError: "IMAGE_REQUEST_ERROR",
 }
 
-exports.SortByMethods = {
-	'dateAsc': 'dateAsc',
-	'dateDec': 'dateDec'
-}
+exports.SortByMethods = [
+	'date-posted-desc',
+	'date-posted-asc',
+	'date-taken-asc',
+	'date-taken-desc',
+	'interestingness-desc',
+	'interestingness-asc',
+	'relevance'
+];
 
 exports.DefaultImgThumbCollectionState = {
 	searchTerm: 'no search term',
@@ -21,7 +26,7 @@ exports.DefaultImgThumbCollectionState = {
 			searchID: 1460485534831
 		}
 	],
-	sortBy: 'dateDec',
+	sortBy: 'date-posted-desc',
 	imagePageNumber: 1,
 	images: [],
 	reactJS: {
