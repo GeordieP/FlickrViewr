@@ -1,4 +1,6 @@
 exports.SendGetReq = (url, successCallback, errorCallback) => {
+	if (!url) return;
+
 	let req = new XMLHttpRequest();
 	req.open('GET', url, true);
 	req.onload = () => {
@@ -25,6 +27,8 @@ let argCache = {
 	sortByMethod: 'date-posted-desc'
 }
 exports.FlickrPhotoSearchURLBuilder = (searchTerm = argCache.searchTerm, resultsPage = argCache.resultsPage, sortByMethod = argCache.sortByMethod) => {
+	if (searchTerm === '') return;
+
 	let args = [
 		'https://api.flickr.com/services/rest/?method=flickr.photos.search',
 		'api_key=bd70a9f9a4f40db9a8f10e90fb31f049',		// not too concerned with giving away my API key here honestly, its usage isn't super important
