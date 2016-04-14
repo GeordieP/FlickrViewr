@@ -28,6 +28,7 @@ aside h2 {
   font-size: 11pt;
   color: #a5a5a5;
   flex-shrink: 0;
+  padding: 3px;
   margin-right: 10px; }
 
 .selectElement {
@@ -50,7 +51,6 @@ aside h2 {
   border: 1px solid #d8d8d8;
   height: 30px;
   font-size: 14pt;
-  color: #a5a5a5;
   margin: 3px;
   padding: 5px; }
 
