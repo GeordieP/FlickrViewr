@@ -37,6 +37,7 @@ aside h2 {
 	font-size: 11pt;
 	color: $main-text-color;
 	flex-shrink: 0;
+	padding: 3px;
 	margin-right: 10px;
 }
 
@@ -63,7 +64,6 @@ aside h2 {
 	border: 1px solid $main-border-color;
 	height: 30px;
 	font-size: 14pt;
-	color: $main-text-color;
 	margin: 3px;
 	padding: 5px;
 }

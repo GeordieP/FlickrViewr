@@ -10,14 +10,16 @@ exports.ActionTypes = {
 }
 
 exports.SortByMethods = {
-	'Date Posted (Descending)': 'date-posted-desc',
-	'Date Posted (Ascending)': 'date-posted-asc',
-	'Date Taken (Ascending)': 'date-taken-asc',
-	'Date Taken (Descending)': 'date-taken-desc',
 	'Interestingness (Descending)': 'interestingness-desc',
 	'Interestingness (Ascending)': 'interestingness-asc',
+	'Date Posted (Descending)': 'date-posted-desc',
+	'Date Posted (Ascending)': 'date-posted-asc',
+	'Date Taken (Descending)': 'date-taken-desc',
+	'Date Taken (Ascending)': 'date-taken-asc',
 	'Relevance': 'relevance'
 };
+
+exports.DefaultSortByMethod = 'interestingness-desc';
 
 exports.MaxSearchHistoryLength = 10;
 

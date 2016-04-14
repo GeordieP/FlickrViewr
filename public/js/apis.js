@@ -1,3 +1,5 @@
+import { DefaultSortByMethod } from './constants'
+
 exports.SendGetReq = (url, successCallback, errorCallback) => {
 	if (!url) return;
 
@@ -24,7 +26,7 @@ exports.SendGetReq = (url, successCallback, errorCallback) => {
 let argCache = {
 	searchTerm: '',
 	resultsPage: '1',
-	sortByMethod: 'date-posted-desc'
+	sortByMethod: DefaultSortByMethod
 }
 exports.FlickrPhotoSearchURLBuilder = (searchTerm = argCache.searchTerm, resultsPage = argCache.resultsPage, sortByMethod = argCache.sortByMethod) => {
 	if (searchTerm === '') return;
