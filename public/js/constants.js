@@ -9,15 +9,15 @@ exports.ActionTypes = {
 	imageRequestError: "IMAGE_REQUEST_ERROR",
 }
 
-exports.SortByMethods = [
-	'date-posted-desc',
-	'date-posted-asc',
-	'date-taken-asc',
-	'date-taken-desc',
-	'interestingness-desc',
-	'interestingness-asc',
-	'relevance'
-];
+exports.SortByMethods = {
+	'Date Posted (Descending)': 'date-posted-desc',
+	'Date Posted (Ascending)': 'date-posted-asc',
+	'Date Taken (Ascending)': 'date-taken-asc',
+	'Date Taken (Descending)': 'date-taken-desc',
+	'Interestingness (Descending)': 'interestingness-desc',
+	'Interestingness (Ascending)': 'interestingness-asc',
+	'Relevance': 'relevance'
+};
 
 exports.DefaultImgThumbCollectionState = {
 	searchTerm: 'no search term',
