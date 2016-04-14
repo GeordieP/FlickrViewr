@@ -1,3 +1,10 @@
+$main-border-color: #d8d8d8;
+$main-text-color: darken($main-border-color, 20%);
+
+body {
+	font-family: arial, sans-serif;
+}
+
 #root {
 	width: 100%;
 	margin-top: 3%;
@@ -11,7 +18,7 @@
 // React wrapper component
 #root > div{
 	width: 90%;
-	min-height: 500px;
+	min-height: 400px;
 	display: flex;
 	flex-direction: row;
 	overflow: hidden;
@@ -19,28 +26,84 @@
 
 // Side bar
 aside {
-	background: green;
+	margin: 5px;
+	padding: 5px;
+	border: 1px solid $main-border-color;
 	display: flex;
 	flex-direction: column;
+}
+
+aside h2 {
+	font-size: 11pt;
+	color: $main-text-color;
+	flex-shrink: 0;
+	margin-right: 10px;
+}
+
+.selectElement {
+	display: flex;
+	justify-content: space-between;
+	align-content: center;
+	align-items: center;
+	margin: 3px;
+}
+
+.selectElement select {
+	border: 1px solid $main-border-color;
+	height: 30px;
+	padding: 5px;
+	width: 100%;
 }
 
 .searchBox {
 	display: flex;
 }
 
+.searchBox input {
+	border: 1px solid $main-border-color;
+	height: 30px;
+	font-size: 14pt;
+	color: $main-text-color;
+	margin: 3px;
+	padding: 5px;
+}
+
+.searchBox button {
+	border: 1px solid $main-border-color;
+	background: #fff;
+	color: $main-text-color;
+	margin: 3px;
+	height: 30px;
+
+}
+
 .searchHistory {
+	padding: 10px;
 	list-style-type: none;
 }
 
 .searchHistory li {
 	padding: 10px;
+	cursor: pointer;
+	font-size: 14pt;
+	color: $main-text-color
 }
 
+.searchHistory li:first-child{
+	font-weight: bold;
+	color: darken($main-text-color, 20%);
+}
+
+.searchHistory li:hover {
+	text-decoration: underline;	
+}
+
+
 main {
+	margin: 5px;
+	border: 1px solid $main-border-color;
 	display: flex;
 	width: 100%;
-
-	background: #ccc;
 }
 
 .viewArea {
