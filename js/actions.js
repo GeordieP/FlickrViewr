@@ -28,6 +28,29 @@ export function selectFullImage(imageID) {
 	}
 }
 
+export function loadNextPage(dispatch, searchTerm, currentPageNumber) {
+	console.log('next. current page: ' + currentPageNumber);
+
+	let newPageNumber = ++currentPageNumber;
+	dispatch(imageRequestBegin(dispatch, FlickrPhotoSearchURLBuilder(searchTerm, newPageNumber)));
+
+	return {
+		type: constants.ActionTypes.loadNextPage,
+		imagePageNumber: newPageNumber
+	}
+}
+
+export function loadPrevPage(dispatch, searchTerm, currentPageNumber) {
+
+	let newPageNumber = --currentPageNumber;
+	dispatch(imageRequestBegin(dispatch, FlickrPhotoSearchURLBuilder(searchTerm, newPageNumber)));
+
+	return {
+		type: constants.ActionTypes.loadPrevPage,
+		imagePageNumber: newPageNumber
+	}
+}
+
 export function imageRequestBegin(dispatch, url) {
 	SendGetReq(url,
 		(successData) => {
@@ -41,6 +64,7 @@ export function imageRequestBegin(dispatch, url) {
 	return {
 		type: constants.ActionTypes.imageRequestBegin,
 		isFetching: true,
+		imagePageNumber: 1,
 		errorData: '',
 	}
 }

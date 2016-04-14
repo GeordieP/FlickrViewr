@@ -14,22 +14,28 @@ function imgThumbCollection(state = constants.DefaultImgThumbCollectionState, ac
 			});
 		case constants.ActionTypes.updateSortBy:
 			return Object.assign({}, state, {
-				sortBy: state.sortBy
+				sortBy: action.sortBy
 			});
+		case constants.ActionTypes.loadNextPage:
+		case constants.ActionTypes.loadPrevPage:
+			return Object.assign({}, state, {
+				imagePageNumber: action.imagePageNumber
+			})
 		case constants.ActionTypes.imageRequestBegin:
 		case constants.ActionTypes.imageRequestError:
 			return Object.assign({}, state, {
+				imagePageNumber: action.imagePageNumber,
 				reactJS: {
-					isFetching: state.isFetching,
-					errorData: state.errorData
+					isFetching: action.isFetching,
+					errorData: action.errorData
 				}
 			});
 		case constants.ActionTypes.imageRequestSuccess:
 			return Object.assign({}, state, {
 				images: action.receivedData.photos.photo,
 				reactJS: {
-					isFetching: state.isFetching,
-					errorData: state.errorData
+					isFetching: action.isFetching,
+					errorData: action.errorData
 				}
 			});
 		default:
@@ -48,16 +54,16 @@ function imgFullDisplay(state = constants.DefaultImgFullDisplayState, action) {
 			return Object.assign({}, state, {
 				selectedImage: '',
 				reactJS: {
-					isFetching: state.isFetching,
-					errorData: state.errorData
+					isFetching: action.isFetching,
+					errorData: action.errorData
 				}
 			});
 		case constants.ActionTypes.imageRequestSuccess:
 			return Object.assign({}, state, {
 				selectedImage: action.receivedData,
 				reactJS: {
-					isFetching: state.isFetching,
-					errorData: state.errorData
+					isFetching: action.isFetching,
+					errorData: action.errorData
 				}
 			});
 		default:
