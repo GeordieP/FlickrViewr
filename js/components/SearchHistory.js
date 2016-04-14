@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 
 const SearchHistory = ({ searchHistory, onUpdateSearchTerm }) => (
-	<ul>
+	<ul className="searchHistory">
 		{
 			searchHistory.map(historyItem => 
 				<a key={historyItem.searchID} href="#"onClick={ (e) => {

@@ -23,7 +23,7 @@ exports.MaxSearchHistoryLength = 10;
 
 exports.DefaultImgThumbCollectionState = {
 	searchTerm: 'no search term',
-	searchHistory: [],
+	searchHistory: [],	
 	sortBy: 'date-posted-desc',
 	imagePageNumber: 1,
 	images: [],
