@@ -19,6 +19,8 @@ exports.SortByMethods = {
 	'Relevance': 'relevance'
 };
 
+exports.MaxSearchHistoryLength = 10;
+
 exports.DefaultImgThumbCollectionState = {
 	searchTerm: 'no search term',
 	searchHistory: [],
