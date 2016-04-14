@@ -2,6 +2,8 @@ exports.ActionTypes = {
 	updateSearchTerm: "UPDATE_SEARCHTERM",
 	updateSortBy: "UPDATE_SORTBY",
 	selectFullImage: "SELECT_FULL_IMAGE",
+	loadNextPage: "LOAD_NEXT_PAGE",
+	loadPrevPage: "LOAD_PREV_PAGE",
 	imageRequestBegin: "IMAGE_REQUEST_BEGIN",
 	imageRequestSuccess: "IMAGE_REQUEST_SUCCESS",
 	imageRequestError: "IMAGE_REQUEST_ERROR",
@@ -20,6 +22,7 @@ exports.DefaultImgThumbCollectionState = {
 		}
 	],
 	sortBy: 'dateDec',
+	imagePageNumber: 1,
 	images: [],
 	reactJS: {
 		isFetching: false,
