@@ -3,7 +3,7 @@ import React, { PropTypes } from 'react';
 const SearchBox = ({ onUpdateSearchTerm }) =>  {
 	let inputElement;
 	return (
-		<div>
+		<div className="searchBox">
 			<input ref={node => { inputElement = node }} type="text"></input>
 			<button onClick={ () => {
 				onUpdateSearchTerm(inputElement.value);

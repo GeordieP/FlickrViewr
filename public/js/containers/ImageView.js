@@ -10,8 +10,10 @@ let ImageViewShape = React.createClass({
 	},
 	render() {
 		return (
-			<div>
-				<Link to="/">Back</Link>
+			<div className="viewArea">
+				<div className="viewArea--controls">
+					<Link to="/">Back</Link>
+				</div>
 				<img src={this.ImgUrlFromID(this.props.params.imageID)}/>
 			</div>
 		)
