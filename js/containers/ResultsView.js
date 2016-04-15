@@ -32,9 +32,9 @@ let ResultsViewShape = React.createClass({
 		return (
 			<div className="viewArea">
 				<div className="viewArea--controls">
-					<a href="#" onClick={() => this.props.prevPageClick(this.props.imagePageNumber)}>&lt;--</a>
+					<a href="#" onClick={(e) => this.props.prevPageClick(e, this.props.imagePageNumber)}>&lt;--</a>
 					<p>Page {this.props.imagePageNumber}</p>
-					<a href="#" onClick={() => this.props.nextPageClick(this.props.imagePageNumber)}>--&gt;</a>
+					<a href="#" onClick={(e) => this.props.nextPageClick(e, this.props.imagePageNumber)}>--&gt;</a>
 				</div>
 				<ul className="viewArea--images">
 					{
@@ -63,11 +63,14 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
 	return {
-		nextPageClick: (currentPageNumber) => {
-			dispatch(loadNextPage(dispatch, currentPageNumber));
+		nextPageClick: (e, currentPageNumber) => {
+			e.preventDefault();
+			dispatch(loadNextPage(dispatch, parseInt(currentPageNumber)));
 		},
-		prevPageClick: (searchTerm, currentPageNumber) => {
-			dispatch(loadPrevPage(dispatch, currentPageNumber));
+		prevPageClick: (e, currentPageNumber) => {
+			e.preventDefault();
+			if (currentPageNumber > 1)
+				dispatch(loadPrevPage(dispatch, currentPageNumber));
 		}
 	}
 }
