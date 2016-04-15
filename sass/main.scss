@@ -41,13 +41,18 @@ body {
 
 // React wrapper component
 #root > div{
-	width: 90%;
+	width: 80%;
 	min-height: 400px;
 	display: flex;
 	flex-direction: row;
 	overflow: hidden;
 }
 
+@media all and (max-width: 960px) {
+	#root > div {
+		width: 100%;
+	}
+}
 // Side bar
 aside {
 	margin: 5px;
@@ -70,14 +75,17 @@ aside h2 {
 	justify-content: space-between;
 	align-content: center;
 	align-items: center;
-	margin: 3px;
+	margin: 3px 0;
 }
 
 .selectElement select {
 	border: 1px solid $main-border-color;
 	height: 30px;
+	font-size: 9pt;
 	padding: 5px;
 	width: 100%;
+	margin: 3px 0;
+
 }
 
 .searchBox {
@@ -86,10 +94,10 @@ aside h2 {
 
 .searchBox input {
 	border: 1px solid $main-border-color;
+	border-right: none;
 	height: 30px;
 	font-size: 12pt;
 	color: $main-border-color;
-	margin: 3px;
 	padding: 5px;
 
 	&:focus {
@@ -98,11 +106,21 @@ aside h2 {
 }
 
 .searchBox button {
-	border: 1px solid $main-border-color;
-	background: #fff;
-	color: $main-text-color;
-	margin: 3px;
+	border: none;
+	background: #006ADD;
+	color: #fff;
 	height: 30px;
+	
+	@include transition(background 0.3s ease);
+
+
+	&:hover {
+		background: #FF1981;
+	}
+
+	&:active {
+		background: darken(#FF1981, 30%);
+	}
 
 }
 
@@ -116,6 +134,20 @@ aside h2 {
 	cursor: pointer;
 	font-size: 14pt;
 	color: $main-text-color;
+
+	animation: newItem-animation 0.5s ease forwards;
+}
+
+@keyframes newItem-animation {
+	from {
+		opacity: 0;
+		transform: translateY(-10px);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
 }
 
 .searchHistory li:first-child{
@@ -196,4 +228,6 @@ main {
 .viewArea li img {
 	max-width: 175px;
 	max-height: 175px;
+	animation: newItem-animation 0.5s ease forwards;
+
 }

@@ -31,11 +31,15 @@ body {
   align-items: center; }
 
 #root > div {
-  width: 90%;
+  width: 80%;
   min-height: 400px;
   display: flex;
   flex-direction: row;
   overflow: hidden; }
+
+@media all and (max-width: 960px) {
+  #root > div {
+    width: 100%; } }
 
 aside {
   margin: 5px;
@@ -56,33 +60,42 @@ aside h2 {
   justify-content: space-between;
   align-content: center;
   align-items: center;
-  margin: 3px; }
+  margin: 3px 0; }
 
 .selectElement select {
   border: 1px solid #d8d8d8;
   height: 30px;
+  font-size: 9pt;
   padding: 5px;
-  width: 100%; }
+  width: 100%;
+  margin: 3px 0; }
 
 .searchBox {
   display: flex; }
 
 .searchBox input {
   border: 1px solid #d8d8d8;
+  border-right: none;
   height: 30px;
   font-size: 12pt;
   color: #d8d8d8;
-  margin: 3px;
   padding: 5px; }
   .searchBox input:focus {
     color: #595959; }
 
 .searchBox button {
-  border: 1px solid #d8d8d8;
-  background: #fff;
-  color: #a5a5a5;
-  margin: 3px;
-  height: 30px; }
+  border: none;
+  background: #006ADD;
+  color: #fff;
+  height: 30px;
+  -moz-transition: background 0.3s ease;
+  -o-transition: background 0.3s ease;
+  -webkit-transition: background 0.3s ease;
+  transition: background 0.3s ease; }
+  .searchBox button:hover {
+    background: #FF1981; }
+  .searchBox button:active {
+    background: #7f0039; }
 
 .searchHistory {
   padding: 10px;
@@ -92,7 +105,16 @@ aside h2 {
   padding: 10px;
   cursor: pointer;
   font-size: 14pt;
-  color: #a5a5a5; }
+  color: #a5a5a5;
+  animation: newItem-animation 0.5s ease forwards; }
+
+@keyframes newItem-animation {
+  from {
+    opacity: 0;
+    transform: translateY(-10px); }
+  to {
+    opacity: 1;
+    transform: translateY(0); } }
 
 .searchHistory li:first-child {
   font-weight: bold;
@@ -152,4 +174,5 @@ main {
 
 .viewArea li img {
   max-width: 175px;
-  max-height: 175px; }
+  max-height: 175px;
+  animation: newItem-animation 0.5s ease forwards; }
