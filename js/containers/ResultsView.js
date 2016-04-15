@@ -32,9 +32,9 @@ let ResultsViewShape = React.createClass({
 		return (
 			<div className="viewArea">
 				<div className="viewArea--controls">
-					<a href="#" onClick={(e) => this.props.prevPageClick(e, this.props.imagePageNumber)}>&lt;--</a>
+					<a href="#" onClick={(e) => this.props.prevPageClick(e, this.props.imagePageNumber)}>&lt;&lt;</a>
 					<p>Page {this.props.imagePageNumber}</p>
-					<a href="#" onClick={(e) => this.props.nextPageClick(e, this.props.imagePageNumber)}>--&gt;</a>
+					<a href="#" onClick={(e) => this.props.nextPageClick(e, this.props.imagePageNumber)}>&gt;&gt;</a>
 				</div>
 				<ul className="viewArea--images">
 					{

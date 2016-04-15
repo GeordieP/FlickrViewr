@@ -4,7 +4,7 @@ const SearchBox = ({ onUpdateSearchTerm }) =>  {
 	let inputElement;
 	let submit = () => {
 		onUpdateSearchTerm(inputElement.value);
-		inputElement.value = 'enter a search term...';
+		inputElement.value = '';
 	}
 	return (
 		<div className="searchBox">
