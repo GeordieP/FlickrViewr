@@ -1,8 +1,10 @@
 import React, { PropTypes } from 'react';
 
 const SearchBox = ({ onUpdateSearchTerm }) =>  {
+	let inputElementDefaultVal = 'try toronto? maybe sunset?';
 	let inputElement;
 	let submit = () => {
+		if (inputElement.value === inputElementDefaultVal) return;
 		onUpdateSearchTerm(inputElement.value);
 		inputElement.value = '';
 	}
@@ -11,7 +13,7 @@ const SearchBox = ({ onUpdateSearchTerm }) =>  {
 			<input 
 				ref={node => inputElement = node}
 				type="text" 
-				defaultValue="try toronto? maybe sunset?"
+				defaultValue={inputElementDefaultVal}
 				onClick={() => inputElement.value = ''}
 				onKeyPress={(e) => { if (e.charCode === 13) submit() }}
 			>
