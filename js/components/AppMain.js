@@ -9,17 +9,19 @@ import ImageView from '../containers/ImageView';
 export default React.createClass({
 	render() {
 		return (
-			<div>
-				<SideBar />
+			<div id="outerWrap">
+				<div className="logo"></div>
+				<div id="contentWrap">
+					<SideBar />
 
-				<main>
-					<Router history={ hashHistory }>
-						<Route path="/" component={ResultsView} />
-						<Route path="/image/:imageID" component={ImageView} />
-					</Router>
-				</main>
-
-			</div>			
+					<main>
+						<Router history={ hashHistory }>
+							<Route path="/" component={ResultsView} />
+							<Route path="/image/:imageID" component={ImageView} />
+						</Router>
+					</main>
+				</div>		
+			</div>	
 		)
 	}
 });

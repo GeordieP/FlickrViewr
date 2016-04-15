@@ -23,23 +23,32 @@ body {
 
 #root {
   width: 100%;
-  margin-top: 3%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-content: center;
   align-items: center; }
 
-#root > div {
+#outerWrap {
   width: 80%;
+  margin-top: 5%; }
+
+#contentWrap {
   min-height: 400px;
   display: flex;
   flex-direction: row;
   overflow: hidden; }
 
 @media all and (max-width: 960px) {
-  #root > div {
-    width: 100%; } }
+  #outerWrap {
+    width: 100%;
+    margin-top: 0; } }
+
+.logo {
+  background-image: url("../img/gflickrviewrlogo.png");
+  margin: 5px;
+  width: 265px;
+  height: 68px; }
 
 aside {
   margin: 5px;
