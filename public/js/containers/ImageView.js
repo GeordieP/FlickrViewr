@@ -9,12 +9,12 @@ let ImageViewShape = React.createClass({
 				<div className="viewArea--controls">
 					<Link to="/"><p>&lt;&lt; Back to results</p></Link>
 					{/* Link to the largest available image we have the URL to without asking flickr for more. Not important enough feature to request all URLs */}
-					<a href={this.props.image.url_o || this.props.image.url_c || this.props.image.url_s} target="_blank"> | Open in new tab</a>
+					<a href={this.props.image.url_o || this.props.image.url_c || this.props.image.url_z || this.props.image.url_n || this.props.image.url_s} target="_blank"> | Open in new tab</a>
 					<a href={'https://www.flickr.com/photos/' + this.props.image.owner + '/' + this.props.image.id + '/'} target="_blank"> | View on Flickr</a>
 				</div>
 				<div className="viewArea--images">
-				{/* Use the _c size if it's available for this image, otherwise use the _s which is.. probably guarenteed to exist? I hope? */}
-				<img src={this.props.image.url_c || this.props.image.url_s} />
+				{/* Use the _c, _z, _n sizes if they're available for this image, fallback to _s which is.. probably guarenteed to exist? I hope? */}
+				<img src={this.props.image.url_c || this.props.image.url_z || this.props.image.url_n || this.props.image.url_s} />
 				</div>
 			</div>
 		)

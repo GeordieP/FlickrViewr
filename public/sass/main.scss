@@ -39,6 +39,24 @@ body {
 @import 'partials/sideBar';
 @import 'partials/viewArea';
 
+footer {
+	display: flex;
+	color: $main-text-color;
+	font-size: 8pt;
+	letter-spacing: 1px;
+	justify-content: center;
+
+	a {
+		color: $dark-text-color;
+		text-decoration: none;
+
+		&:hover {
+			color: $main-text-color;
+			text-decoration: underline;
+		}
+	}
+}
+
 // fill the page horizontally at < 960px view width
 @media all and (max-width: 960px) {
 	#outerWrap {

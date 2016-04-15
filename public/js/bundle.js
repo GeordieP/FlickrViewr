@@ -21943,7 +21943,7 @@
 		if (searchTerm === '') return;
 
 		var args = ['https://api.flickr.com/services/rest/?method=flickr.photos.search', 'api_key=bd70a9f9a4f40db9a8f10e90fb31f049', // not too concerned with giving away my API key here honestly, its usage isn't super important
-		'text=' + searchTerm, 'sort=' + sortByMethod, 'format=json', 'nojsoncallback=1', 'per_page=10', 'page=' + resultsPage, 'extras=url_s,url_c,url_o'];
+		'text=' + searchTerm, 'sort=' + sortByMethod, 'format=json', 'nojsoncallback=1', 'per_page=10', 'page=' + resultsPage, 'extras=url_s,url_n,url_z,url_c,url_o'];
 
 		argCache.searchTerm = searchTerm;
 		argCache.resultsPage = resultsPage;
@@ -27412,7 +27412,7 @@
 					),
 					_react2.default.createElement(
 						'a',
-						{ href: this.props.image.url_o || this.props.image.url_c || this.props.image.url_s, target: '_blank' },
+						{ href: this.props.image.url_o || this.props.image.url_c || this.props.image.url_z || this.props.image.url_n || this.props.image.url_s, target: '_blank' },
 						' | Open in new tab'
 					),
 					_react2.default.createElement(
@@ -27424,7 +27424,7 @@
 				_react2.default.createElement(
 					'div',
 					{ className: 'viewArea--images' },
-					_react2.default.createElement('img', { src: this.props.image.url_c || this.props.image.url_s })
+					_react2.default.createElement('img', { src: this.props.image.url_c || this.props.image.url_z || this.props.image.url_n || this.props.image.url_s })
 				)
 			);
 		}
