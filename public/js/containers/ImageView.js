@@ -3,19 +3,16 @@ import { Link } from 'react-router'
 import { connect } from 'react-redux';
 
 let ImageViewShape = React.createClass({
-	ImgUrlFromID (imageID) {
-		return this.props.images.find( (img) => {
-			return img.id === imageID;
-		}).url_z;
-	},
 	render() {
 		return (
 			<div className="viewArea">
 				<div className="viewArea--controls">
-					<Link to="/"><p>&lt;-- Back to results</p></Link><a href="#" target="_blank"> | Original Image</a>
+					<Link to="/"><p>&lt;-- Back to results</p></Link>
+					<a href={this.props.image.url_o} target="_blank"> | Full Size</a>
+					<a href={ 'https://www.flickr.com/photos/' + this.props.image.owner + '/' + this.props.image.id + '/' } target="_blank"> | View on Flickr</a>
 				</div>
 				<div className="viewArea--images">
-					<img src={this.ImgUrlFromID(this.props.params.imageID)}/>
+				<img src={this.props.image.url_z} />
 				</div>
 			</div>
 		)
@@ -24,7 +21,7 @@ let ImageViewShape = React.createClass({
 
 const mapStateToProps = (state, ownProps) => {
 	return {
-		images: state.imgThumbCollection.images
+		image: state.imgThumbCollection.images.find((img) => { return img.id === ownProps.params.imageID })
 	}
 }
 
