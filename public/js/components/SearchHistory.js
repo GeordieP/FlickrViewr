@@ -21,4 +21,3 @@ SearchHistory.propTypes = {
 }
 
 export default SearchHistory;
-
