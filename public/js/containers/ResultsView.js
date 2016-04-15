@@ -5,20 +5,23 @@ import { loadNextPage, loadPrevPage } from '../actions';
 
 let ResultsViewShape = React.createClass({
 	render() {
+		// make sure to display error data if we receive any
 		if (this.props.errorData)
 			return (
 				<div className="viewArea">
-					<div class="viewArea--errorData">{ this.props.errorData }</div>
+					<div class="viewArea--errorData">{this.props.errorData}</div>
 				</div>
-			);
+			)
 
+		// display a spinner if a request is in progress
 		if (this.props.isFetching)
 			return ( 
 				<div className="viewArea">
 					<div class="loading-spinner"></div>
 				</div>
-			);
+			)
 
+		// display a message if the images array isn't populated (default state, or invalid search term)
 		if (this.props.images.length < 1)
 			return (
 				<div className="viewArea">
@@ -27,7 +30,7 @@ let ResultsViewShape = React.createClass({
 						<h2>Enter a new search term to find some!</h2>
 					</div>
 				</div>
-			);
+			)
 
 		return (
 			<div className="viewArea">
@@ -39,16 +42,16 @@ let ResultsViewShape = React.createClass({
 				<ul className="viewArea--images">
 					{
 						this.props.images.map(image =>
-						<li key={image.id}>
-							<Link to={ '/image/' + image.id } >
-								<img src={image.url_s} />
-							</Link>
-						</li>
+							<li key={image.id}>
+								<Link to={'/image/' + image.id} >
+									<img src={image.url_s} />
+								</Link>
+							</li>
 						)
 					}
 				</ul>
 			</div>
-		);
+		)
 	}
 });
 

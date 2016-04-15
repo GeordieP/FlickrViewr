@@ -1,3 +1,4 @@
+// All the action types to be returned from actions and read in reducers
 exports.ActionTypes = {
 	updateSearchTerm: "UPDATE_SEARCHTERM",
 	updateSortBy: "UPDATE_SORTBY",
@@ -9,6 +10,7 @@ exports.ActionTypes = {
 	imageRequestError: "IMAGE_REQUEST_ERROR",
 }
 
+// Image result sort-by methods available on flickr, keyed by a more readable version of each
 exports.SortByMethods = {
 	'Interestingness (Descending)': 'interestingness-desc',
 	'Interestingness (Ascending)': 'interestingness-asc',
@@ -23,6 +25,7 @@ exports.DefaultSortByMethod = 'interestingness-desc';
 
 exports.MaxSearchHistoryLength = 10;
 
+// Default state of the store's imgThumbCollection
 exports.DefaultImgThumbCollectionState = {
 	searchTerm: '',
 	searchHistory: [],	
@@ -35,6 +38,7 @@ exports.DefaultImgThumbCollectionState = {
 	}
 }
 
+// Default state of the store's imgFullDisplay
 exports.DefaultImgFullDisplayState = {
 	selectedImage: 'no selected img',
 	reactJS: {
