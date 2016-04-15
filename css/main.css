@@ -50,9 +50,12 @@ aside h2 {
 .searchBox input {
   border: 1px solid #d8d8d8;
   height: 30px;
-  font-size: 14pt;
+  font-size: 12pt;
+  color: #d8d8d8;
   margin: 3px;
   padding: 5px; }
+  .searchBox input:focus {
+    color: #595959; }
 
 .searchBox button {
   border: 1px solid #d8d8d8;
@@ -73,7 +76,7 @@ aside h2 {
 
 .searchHistory li:first-child {
   font-weight: bold;
-  color: #727272; }
+  color: #595959; }
 
 .searchHistory li:hover {
   text-decoration: underline; }
@@ -81,11 +84,25 @@ aside h2 {
 main {
   margin: 5px;
   border: 1px solid #d8d8d8;
-  display: flex;
   width: 100%; }
 
+.viewArea {
+  padding: 10px;
+  width: 100%; }
+
+.viewArea--noImg h1 {
+  font-size: 30pt;
+  padding: 10px;
+  color: #d8d8d8; }
+
+.viewArea--noImg h2 {
+  font-size: 13pt;
+  padding: 10px;
+  color: #a5a5a5; }
+
 .viewArea--controls {
-  display: flex; }
+  display: flex;
+  padding: 5px; }
 
 .viewArea--images {
   display: flex;
@@ -94,8 +111,8 @@ main {
   flex-wrap: wrap; }
 
 .viewArea--images li {
-  width: 190px;
-  height: 190px;
+  max-width: 190px;
+  max-height: 190px;
   margin: 3px;
   display: flex;
   justify-content: center;

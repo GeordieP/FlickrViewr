@@ -6,7 +6,14 @@ import { loadNextPage, loadPrevPage } from '../actions';
 let ResultsViewShape = React.createClass({
 	render() {
 		if (this.props.images.length < 1)
-			return ( <div className="viewArea"><h1>No images :(</h1></div> )
+			return (
+				<div className="viewArea">
+					<div className="viewArea--noImg">
+						<h1>No image results :(</h1>
+						<h2>Enter a new search term to find some!</h2>
+					</div>
+				</div>
+			)
 
 		return (
 			<div className="viewArea">
