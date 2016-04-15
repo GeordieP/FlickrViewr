@@ -153,7 +153,8 @@ main {
 
 .viewArea--controls {
   display: flex;
-  padding: 5px;
+  justify-content: center;
+  padding: 15px;
   font-size: 14pt; }
   .viewArea--controls a, .viewArea--controls p {
     padding: 0 5px 0 0;

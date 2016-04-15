@@ -8,7 +8,7 @@ let ImageViewShape = React.createClass({
 			<div className="viewArea">
 				<div className="viewArea--controls">
 					<Link to="/"><p>&lt;&lt; Back to results</p></Link>
-					<a href={this.props.image.url_o || this.props.image.url_c || this.props.image.url_s} target="_blank"> | Full Size</a>
+					<a href={this.props.image.url_o || this.props.image.url_c || this.props.image.url_s} target="_blank"> | Open in new tab</a>
 					<a href={ 'https://www.flickr.com/photos/' + this.props.image.owner + '/' + this.props.image.id + '/' } target="_blank"> | View on Flickr</a>
 				</div>
 				<div className="viewArea--images">
