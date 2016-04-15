@@ -1,3 +1,9 @@
+// Mixins
+@import 'partials/mixins';
+// Misc utilities: animations, very generic cross-project components, etc
+@import 'partials/util';
+
+
 $main-border-color: #d8d8d8;
 $main-text-color: darken($main-border-color, 20%);
 $dark-text-color: darken($main-text-color, 30%);
@@ -6,29 +12,7 @@ body {
 	font-family: Arial, Helvetica, sans-serif;
 }
 
-@import 'partials/mixins';
-
-.loading-spinner {
-	margin: 10px;
-	border-bottom: 6px solid rgba(0, 0, 0, .2);
-	border-left: 6px solid rgba(0, 0, 0, .2);
-	border-right: 6px solid rgba(0, 0, 0, .2);
-	border-top: 6px solid rgba(0, 0, 0, .6);
-	@include border-radius(100%);
-	height: 50px;
-	width: 50px;
-	animation: rotate 0.7s infinite linear;
-}
-
-@keyframes rotate {
-	0% {
-		transform: rotate(0deg);
-	}
-	100% {
-		transform: rotate(360deg);
-	}
-}
-
+// react mount point
 #root {
 	width: 100%;
 	display: flex;
@@ -38,6 +22,7 @@ body {
 	align-items: center;
 }
 
+// everything wrapper
 #outerWrap {
 	width: 80%;
 	margin-top: 5%;
@@ -51,197 +36,13 @@ body {
 	overflow: hidden;
 }
 
+@import 'partials/sideBar';
+@import 'partials/viewArea';
+
+// fill the page horizontally at < 960px view width
 @media all and (max-width: 960px) {
 	#outerWrap {
 		width: 100%;
 		margin-top: 0;
 	}
-}
-
-.logo {
-	background-image: url('../img/gflickrviewrlogo.png');
-	// background: red;
-	margin: 5px;
-	width: 265px;
-	height: 68px;
-}
-
-// Side bar
-aside {
-	margin: 5px;
-	padding: 5px;
-	border: 1px solid $main-border-color;
-	display: flex;
-	flex-direction: column;
-}
-
-aside h2 {
-	font-size: 11pt;
-	color: $main-text-color;
-	flex-shrink: 0;
-	padding: 3px;
-	margin-right: 10px;
-}
-
-.selectElement {
-	display: flex;
-	justify-content: space-between;
-	align-content: center;
-	align-items: center;
-	margin: 3px 0;
-}
-
-.selectElement select {
-	border: 1px solid $main-border-color;
-	height: 30px;
-	font-size: 9pt;
-	padding: 5px;
-	width: 100%;
-	margin: 3px 0;
-
-}
-
-.searchBox {
-	display: flex;
-}
-
-.searchBox input {
-	border: 1px solid $main-border-color;
-	border-right: none;
-	height: 30px;
-	font-size: 12pt;
-	color: $main-border-color;
-	padding: 5px;
-
-	&:focus {
-		color: $dark-text-color;
-	}
-}
-
-.searchBox button {
-	border: none;
-	background: #006ADD;
-	color: #fff;
-	height: 30px;
-	
-	@include transition(background 0.3s ease);
-
-
-	&:hover {
-		background: #FF1981;
-	}
-
-	&:active {
-		background: darken(#FF1981, 30%);
-	}
-
-}
-
-.searchHistory {
-	padding: 10px;
-	list-style-type: none;
-}
-
-.searchHistory li {
-	padding: 10px;
-	cursor: pointer;
-	font-size: 14pt;
-	color: $main-text-color;
-
-	animation: newItem-animation 0.5s ease forwards;
-}
-
-@keyframes newItem-animation {
-	from {
-		opacity: 0;
-		transform: translateY(-10px);
-	}
-
-	to {
-		opacity: 1;
-		transform: translateY(0);
-	}
-}
-
-.searchHistory li:first-child{
-	font-weight: bold;
-	color: $dark-text-color;
-}
-
-.searchHistory li:hover {
-	text-decoration: underline;	
-}
-
-main {
-	margin: 5px;
-	border: 1px solid $main-border-color;
-	width: 100%;
-}
-
-.viewArea {
-	padding: 10px;
-	width: 100%;
-}
-
-.viewArea--noImg {
-	h1 {
-		font-size: 30pt;
-		padding: 10px;
-		color: $main-border-color;
-	}
-
-	h2 {
-		font-size: 13pt;
-		padding: 10px;
-		color: $main-text-color;
-	}
-}
-
-.viewArea--controls {
-	display: flex;
-	justify-content: center;
-	padding: 15px;
-
-	font-size: 14pt;
-
-	a, p {
-		padding: 0 5px 0 0;
-		color: $main-text-color;
-		text-decoration: none;
-
-		&:hover {
-			color: $dark-text-color;
-		}
-	}
-
-	p {
-		color: $dark-text-color;
-	}
-}
-
-.viewArea--images {
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	align-content: center;
-	align-items: center;
-	flex-wrap: wrap;
-}
-
-.viewArea--images li {
-	max-width: 190px;
-	max-height: 190px;
-	margin: 3px;
-	// background: #aaa;
-	display: flex;
-	justify-content: center;
-	align-content: center;
-	align-items: center;
-}
-
-.viewArea li img {
-	max-width: 175px;
-	max-height: 175px;
-	animation: newItem-animation 0.5s ease forwards;
-
 }

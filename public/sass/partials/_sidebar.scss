@@ -1,0 +1,98 @@
+.logo {
+	background-image: url('../img/gflickrviewrlogo.png');
+	margin: 5px;
+	width: 265px;
+	height: 68px;
+}
+
+aside {
+	margin: 5px;
+	padding: 5px;
+	border: 1px solid $main-border-color;
+	display: flex;
+	flex-direction: column;
+
+	h2 {
+		font-size: 11pt;
+		color: $main-text-color;
+		flex-shrink: 0;
+		padding: 3px;
+		margin-right: 10px;	
+	}
+}
+
+.selectElement {
+	display: flex;
+	justify-content: space-between;
+	align-content: center;
+	align-items: center;
+	margin: 3px 0;
+
+	select {
+		border: 1px solid $main-border-color;
+		height: 30px;
+		font-size: 9pt;
+		padding: 5px;
+		width: 100%;
+		margin: 3px 0;
+		
+	}
+}
+
+.searchBox {
+	display: flex;
+
+	input {
+		border: 1px solid $main-border-color;
+		border-right: none;
+		height: 30px;
+		font-size: 12pt;
+		color: $main-border-color;
+		padding: 5px;
+
+		&:focus {
+			color: $dark-text-color;
+		}
+	}
+
+	button {
+		border: none;
+		background: #006ADD;
+		color: #fff;
+		height: 30px;
+		
+		@include transition(background 0.3s ease);
+
+
+		&:hover {
+			background: #FF1981;
+		}
+
+		&:active {
+			background: darken(#FF1981, 30%);
+		}
+	}
+}
+
+.searchHistory {
+	padding: 10px;
+	list-style-type: none;
+	
+	li {
+		padding: 10px;
+		cursor: pointer;
+		font-size: 14pt;
+		color: $main-text-color;
+
+		animation: newItem-animation 0.5s ease forwards;
+
+		&:first-child {
+			font-weight: bold;
+			color: $dark-text-color;
+		}
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+}
