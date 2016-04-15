@@ -4,6 +4,11 @@ import { combineReducers } from 'redux';
 function imgThumbCollection(state = constants.DefaultImgThumbCollectionState, action) {
 	switch(action.type) {
 		case constants.ActionTypes.updateSearchTerm:
+			// ignore change if new search term is the same as the most recent in history
+			if (state.searchHistory.length > 0
+				&& action.searchTerm === state.searchHistory[0].searchTerm)
+				return state;
+
 			let newHistory = [{
 					searchTerm: action.searchTerm,
 					searchID: action.searchID
