@@ -57,7 +57,7 @@ exports.FlickrPhotoSearchURLBuilder = (searchTerm = argCache.searchTerm, results
 		'nojsoncallback=1',
 		'per_page=10',
 		'page=' + resultsPage,
-		'extras=url_s,url_c,url_o'
+		'extras=url_s,url_n,url_z,url_c,url_o'
 	];
 
 	argCache.searchTerm = searchTerm;

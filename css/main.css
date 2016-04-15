@@ -173,6 +173,19 @@ main {
       max-height: 175px;
       animation: newItem-animation 0.5s ease forwards; }
 
+footer {
+  display: flex;
+  color: #a5a5a5;
+  font-size: 8pt;
+  letter-spacing: 1px;
+  justify-content: center; }
+  footer a {
+    color: #595959;
+    text-decoration: none; }
+    footer a:hover {
+      color: #a5a5a5;
+      text-decoration: underline; }
+
 @media all and (max-width: 960px) {
   #outerWrap {
     width: 100%;
