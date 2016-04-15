@@ -18,9 +18,9 @@ let ResultsViewShape = React.createClass({
 		return (
 			<div className="viewArea">
 				<div className="viewArea--controls">
-					<a href="#" onClick={() => this.props.prevPageClick(this.props.imagePageNumber)}>Previous</a>
+					<a href="#" onClick={() => this.props.prevPageClick(this.props.imagePageNumber)}>◄</a>
 					<p>Page {this.props.imagePageNumber}</p>
-					<a href="#" onClick={() => this.props.nextPageClick(this.props.imagePageNumber)}>Next</a>
+					<a href="#" onClick={() => this.props.nextPageClick(this.props.imagePageNumber)}>►</a>
 				</div>
 				<ul className="viewArea--images">
 					{

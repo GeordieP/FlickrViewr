@@ -3,7 +3,7 @@ $main-text-color: darken($main-border-color, 20%);
 $dark-text-color: darken($main-text-color, 30%);
 
 body {
-	font-family: arial, sans-serif;
+	font-family: Arial, Helvetica, sans-serif;
 }
 
 #root {
@@ -132,12 +132,30 @@ main {
 .viewArea--controls {
 	display: flex;
 	padding: 5px;
+
+	font-size: 14pt;
+
+	a, p {
+		padding: 0 5px 0 0;
+		color: $main-text-color;
+		text-decoration: none;
+
+		&:hover {
+			color: $dark-text-color;
+		}
+	}
+
+	p {
+		color: $dark-text-color;
+	}
 }
 
 .viewArea--images {
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
+	align-content: center;
+	align-items: center;
 	flex-wrap: wrap;
 }
 

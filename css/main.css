@@ -1,5 +1,5 @@
 body {
-  font-family: arial, sans-serif; }
+  font-family: Arial, Helvetica, sans-serif; }
 
 #root {
   width: 100%;
@@ -102,12 +102,23 @@ main {
 
 .viewArea--controls {
   display: flex;
-  padding: 5px; }
+  padding: 5px;
+  font-size: 14pt; }
+  .viewArea--controls a, .viewArea--controls p {
+    padding: 0 5px 0 0;
+    color: #a5a5a5;
+    text-decoration: none; }
+    .viewArea--controls a:hover, .viewArea--controls p:hover {
+      color: #595959; }
+  .viewArea--controls p {
+    color: #595959; }
 
 .viewArea--images {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  align-content: center;
+  align-items: center;
   flex-wrap: wrap; }
 
 .viewArea--images li {
