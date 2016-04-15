@@ -31,7 +31,6 @@ body {
 
 #root {
 	width: 100%;
-	margin-top: 3%;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -39,9 +38,13 @@ body {
 	align-items: center;
 }
 
-// React wrapper component
-#root > div{
+#outerWrap {
 	width: 80%;
+	margin-top: 5%;
+}
+
+// React wrapper component
+#contentWrap {
 	min-height: 400px;
 	display: flex;
 	flex-direction: row;
@@ -49,10 +52,20 @@ body {
 }
 
 @media all and (max-width: 960px) {
-	#root > div {
+	#outerWrap {
 		width: 100%;
+		margin-top: 0;
 	}
 }
+
+.logo {
+	background-image: url('../img/gflickrviewrlogo.png');
+	// background: red;
+	margin: 5px;
+	width: 265px;
+	height: 68px;
+}
+
 // Side bar
 aside {
 	margin: 5px;
