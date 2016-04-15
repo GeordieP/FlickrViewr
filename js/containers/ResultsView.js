@@ -5,6 +5,13 @@ import { loadNextPage, loadPrevPage } from '../actions';
 
 let ResultsViewShape = React.createClass({
 	render() {
+		if (this.props.errorData)
+			return (
+				<div className="viewArea">
+					<div class="viewArea--errorData">{ this.props.errorData }</div>
+				</div>
+			);
+
 		if (this.props.isFetching)
 			return ( 
 				<div className="viewArea">
@@ -20,7 +27,7 @@ let ResultsViewShape = React.createClass({
 						<h2>Enter a new search term to find some!</h2>
 					</div>
 				</div>
-			)
+			);
 
 		return (
 			<div className="viewArea">
@@ -47,6 +54,7 @@ let ResultsViewShape = React.createClass({
 
 const mapStateToProps = (state, ownProps) => {
 	return {
+		errorData: state.imgThumbCollection.reactJS.errorData,
 		isFetching: state.imgThumbCollection.reactJS.isFetching,
 		imagePageNumber: state.imgThumbCollection.imagePageNumber,
 		images: state.imgThumbCollection.images
