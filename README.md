@@ -17,13 +17,15 @@ Decided against using redux-thunk (or similar) middleware, as there's only a few
 ## Do it yourself
 
 ### Run:
-Clone this repository and open public/index.html. Easy!
+Clone this repository and open `public/index.html`. Easy!
 
 ### Dev:
 Clone this repository, and run `npm install` inside.
 
-Changes to any code inside /js/ will require `webpack` to be run in the project root, to build a new bundle file.
+Changes to any code inside `js/` will require `webpack` to be run in the project root to build a new bundle file.
 
-Changes to any .scss files inside /sass/ will require `gulp styles` to be run in the project root to compile to .css.
+Changes to any .scss files inside `sass/` will require `gulp styles` to be run in the project root to compile .scss to .css.
 
 I recommend running at least both `webpack --watch` and `gulp` to automatically compile when a change happens!
+
+Minifying your Webpack output using UglifyJS can be achieved by running `webpack --min`.
