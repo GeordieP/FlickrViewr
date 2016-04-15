@@ -5,6 +5,13 @@ import { loadNextPage, loadPrevPage } from '../actions';
 
 let ResultsViewShape = React.createClass({
 	render() {
+		if (this.props.isFetching)
+			return ( 
+				<div className="viewArea">
+					<div class="loading-spinner"></div>
+				</div>
+			);
+
 		if (this.props.images.length < 1)
 			return (
 				<div className="viewArea">
@@ -40,6 +47,7 @@ let ResultsViewShape = React.createClass({
 
 const mapStateToProps = (state, ownProps) => {
 	return {
+		isFetching: state.imgThumbCollection.reactJS.isFetching,
 		imagePageNumber: state.imgThumbCollection.imagePageNumber,
 		images: state.imgThumbCollection.images
 	}
