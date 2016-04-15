@@ -15,9 +15,9 @@ const SearchBox = ({ onUpdateSearchTerm }) =>  {
 				onClick={() => inputElement.value = ''}
 				onBlur={() => inputElement.value = 'enter a search term'}
 				onKeyPress={(e) => { if (e.charCode === 13) submit() }}
-				>
+			>
 			</input>
-			<button onClick={() => submit() } >
+			<button onClick={() => submit()} >
 			Search
 			</button>
 		</div>

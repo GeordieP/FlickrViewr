@@ -16,6 +16,7 @@ function imgThumbCollection(state = constants.DefaultImgThumbCollectionState, ac
 				...state.searchHistory
 			];
 
+			// remove old history entries if we're past our max allowed array length
 			if (newHistory.length > constants.MaxSearchHistoryLength) newHistory.pop()
 			
 			return Object.assign({}, state, {
